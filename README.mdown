@@ -1,0 +1,27 @@
+# Odd shotgun behavior
+
+## Quick backstory
+I was creating a simple mockup api with Sinatra and i wanted some of the responses to come back successfull and some unsucessful.  I figured I'd use shotgun as I was updating the responses as needed.  In order to get a random response, i used:
+	
+	if rand(100) > 50
+		"good"
+	else
+		"bad"
+	end
+
+in order to give a 50/50 shot of getting a good or bad response.  What I noticed was that I was that after I started the server, whatever my first response was, it remained that way for all subsequent requests until I restarted.
+
+## To see this in action follow these commands
+
+	git clone git@github.com:jamster/shotgun_random.git
+	cd shotgun_random
+	shotgun
+	
+## Then go to 
+	http://localhost:9393/100
+
+Hit refresh as many times as you'd like, it will always return the same number, or so it does on my machine.
+
+	
+## Other tidbits
+If I used straight "rackup", this problem seemed to go away.  
